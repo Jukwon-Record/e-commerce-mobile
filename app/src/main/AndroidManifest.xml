@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommercemobile">
-        <activity android:name=".viewModel.UpdateDetailUtilisateurActivity"></activity>
+        <activity android:name=".viewModel.MonCompte"></activity>
+        <activity android:name=".viewModel.UpdateDetailUtilisateurActivity" />
         <activity android:name=".viewModel.ConfirmationPreCommandeActivity" />
         <activity android:name=".viewModel.TransactionActivity" />
         <activity android:name=".viewModel.PrePaiementActivity" />
