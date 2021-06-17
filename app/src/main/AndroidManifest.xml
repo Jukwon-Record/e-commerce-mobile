@@ -15,10 +15,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommercemobile">
-        <activity android:name=".ChangePasswordActivity"></activity>
-        <activity android:name=".SignUp" />
-        <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".viewModel.UpdateDetailUtilisateurActivity"></activity>
+        <activity android:name=".viewModel.ConfirmationPreCommandeActivity" />
+        <activity android:name=".viewModel.TransactionActivity" />
+        <activity android:name=".viewModel.PrePaiementActivity" />
+        <activity android:name=".viewModel.PaiementFinalActivity" />
+        <activity android:name=".viewModel.MonAdresseActivity" />
+        <activity android:name=".viewModel.VueProduitActivity" />
+        <activity android:name=".viewModel.PreparationCommandeActivity" />
+        <activity android:name=".viewModel.OuvrirCompteBusinessActivity" />
+        <activity android:name=".viewModel.AjouterNouveauProduitActivity" />
+        <activity android:name=".viewModel.AjouterNouveauAdresseActivity" />
+        <activity android:name=".viewModel.AproposDeveloppeurActivity" />
+        <activity android:name=".viewModel.ConfirmationCommandeActivity" />
+        <activity android:name=".viewModel.CommandeActivity" />
+        <activity android:name=".viewModel.SplashScreenActivity" />
+        <activity android:name=".viewModel.ListePanierActivity" />
+        <activity android:name=".viewModel.ChangerPasswordActivity" />
+        <activity android:name=".viewModel.SignUpActivity" />
+        <activity android:name=".viewModel.LoginActivity" />
+        <activity android:name=".viewModel.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,10 +1,12 @@
-package com.example.e_commerce_mobile;
+package com.example.e_commerce_mobile.viewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+import com.example.e_commerce_mobile.R;
+
+public class ChangerPasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

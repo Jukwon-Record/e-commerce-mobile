@@ -1,14 +1,15 @@
-package com.example.e_commerce_mobile;
+package com.example.e_commerce_mobile.viewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.e_commerce_mobile.R;
 
 import android.os.Bundle;
 
-public class SignUp extends AppCompatActivity {
+public class CommandeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_commande);
     }
 }

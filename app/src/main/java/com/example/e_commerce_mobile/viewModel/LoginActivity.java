@@ -1,4 +1,4 @@
-package com.example.e_commerce_mobile;
+package com.example.e_commerce_mobile.viewModel;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.e_commerce_mobile.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,7 +27,7 @@ import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
 import java.util.HashMap;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout etLEmail, etLPassword;
     private AppCompatButton lbtn, lrbtn;
@@ -66,7 +67,7 @@ public class Login extends AppCompatActivity {
         signup_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SignUp.class));
+                startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
             }
         });
 
@@ -137,7 +138,7 @@ public class Login extends AppCompatActivity {
         tv_forget_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),ChangePasswordActivity.class);
+                Intent intent=new Intent(getApplicationContext(), ChangerPasswordActivity.class);
                 intent.putExtra("title","Forget Password"); // Its use to set title
                 startActivity(intent);
             }
@@ -150,12 +151,12 @@ public class Login extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
 
         if (currentUser.isEmailVerified()){
-            Intent registerIntent = new Intent(Login.this, MainActivity.class);
+            Intent registerIntent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(registerIntent);
             finishAffinity();
         }
         else {
-            Toast.makeText(getApplicationContext(),"Please verify your Account before Login ",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Please verify your Account before LoginActivity ",Toast.LENGTH_LONG).show();
             mAuth.signOut();
         }
 
@@ -169,10 +170,10 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(getApplicationContext(),Login.class));
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     finish();
                     Toast.makeText(getApplicationContext(), "Verification de Email envoye", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "Veuillez verifier votre Compte avant Login", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Veuillez verifier votre Compte avant LoginActivity", Toast.LENGTH_LONG).show();
 
 
                 } else {
