@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#03DAC6</color>
-    <color name="colorPrimaryDark">#03DAC6</color>
-    <color name="colorAccent">#03DAC6</color>
+    <color name="colorPrimary">#039be5</color>
+    <color name="colorPrimaryDark">#039be5</color>
+    <color name="colorAccent">#039be5</color>
     <color name="colorBlack">#000000</color>
     <color name="colorTransparentBlack">#99000000</color>
     <color name="colorWhiteTransparent">#99ffffff</color>
@@ -15,7 +15,7 @@
 
 
 
-    <!--couleur lies a mon compte -->
+    <!--couleur liée à mon compte-->
     <color name="toolbar">#039be5</color>
     <color name="my_account_color">#FFFF</color>
     <color name="Text_color_heading_cardview">#070707</color>

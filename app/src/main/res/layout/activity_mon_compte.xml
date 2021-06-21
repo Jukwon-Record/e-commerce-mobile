@@ -1,9 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".viewModel.MonCompte">
+    <androidx.appcompat.widget.Toolbar
+        android:background="@color/toolbar"
+        android:id="@+id/toolbar_moncompte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.appcompat.widget.Toolbar>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:background="@color/toolbar"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/my_account_profile_pic"
+                    android:layout_marginTop="10sp"
+                    android:src="@mipmap/icon_utilisateur"
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"/>
+
+                <TextView
+                    android:id="@+id/nom_mon_compte"
+                    android:textSize="25dp"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginBottom="15sp"
+                    android:layout_gravity="center"
+                    android:text="Nom"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/my_account_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <TextView
+                    android:id="@+id/tv_myaccount_mobile_number"
+                    android:layout_gravity="center"
+                    android:textColor="@color/my_account_color"
+                    android:textSize="15dp"
+                    android:text="Numero Mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_moncompte_address_email"
+                    android:layout_gravity="center"
+                    android:textColor="@color/my_account_color"
+                    android:textSize="15dp"
+                    android:text="Adresse Email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/IV_edit_moncompte"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_editor"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:padding="20dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_heading_cardview"
+                        android:text="Adhésion principale"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:maxLines="2"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="#C5C1C1"
+                        android:text="Obtenez des avantages supplémentaires sur l'achat de produits"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#C5C1C1" />
+
+                    <TextView
+                        android:id="@+id/tv_moncompte_adhesion_principale"
+                        android:textAllCaps="true"
+                        android:gravity="right"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_link_cardview"
+                        android:text="Voir votre adhésion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:padding="20dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_heading_cardview"
+                        android:text="Mes Commandes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#C5C1C1" />
+
+                    <TextView
+                        android:id="@+id/tv_mon_compte_mescommandes"
+                        android:textAllCaps="true"
+                        android:gravity="right"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_link_cardview"
+                        android:text="Voir toutes les commandes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:padding="20dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_heading_cardview"
+                        android:text="Mon Adresse (défaut)"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:maxLines="5"
+                        android:id="@+id/tv_adresse_mon_compte_defaut"
+                        android:layout_marginTop="10dp"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="#C5C1C1"
+                        android:text="Numero de la Maison 00 , Impossible de placer Lomé XXXX Togo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#C5C1C1" />
+
+                    <TextView
+                        android:id="@+id/tv_moncompte_monadresse"
+                        android:textAllCaps="true"
+                        android:gravity="right"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_link_cardview"
+                        android:text="Voir toutes les adresses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:padding="20dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_heading_cardview"
+                        android:text="Compte d'entreprise"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#C5C1C1" />
+
+                    <TextView
+                        android:clickable="false"
+                        android:visibility="invisible"
+                        android:id="@+id/tv_myaccount_business_account"
+                        android:textAllCaps="true"
+                        android:gravity="right"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_link_cardview"
+                        android:text=""
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:padding="20dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_heading_cardview"
+                        android:text="Changer Mot de Passe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#C5C1C1" />
+
+                    <TextView
+                        android:id="@+id/tv_moncopmte_changer_password"
+                        android:textAllCaps="true"
+                        android:gravity="right"
+                        android:textSize="@dimen/Heading_cardview"
+                        android:textColor="@color/Text_color_link_cardview"
+                        android:text="Cliquez ici"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>

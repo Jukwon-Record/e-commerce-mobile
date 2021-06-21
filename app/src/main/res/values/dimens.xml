@@ -1,26 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!-- Les marges par defaut, selon les guidelines du design Android . -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Marges d'écran par défaut, conformément aux directives de conception Android. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">150dp</dimen>
     <dimen name="cart_fab_margin">15dp</dimen>
 
-    <dimen name="design_navigation_separator_vertical_padding" xmlns:tools="http://schemas.android.com/tools">0dp</dimen>
+    <dimen name="design_navigation_separator_vertical_padding" tools:override="true">0dp</dimen>
 
 
 
-    <!--La taille liee a mon compte -->
+    <!--taille liée à mon compte -->
     <dimen name="Heading_cardview">15sp</dimen>
 
-    <!--    New Address Add related-->
+    <!--    Nouvelle adresse Ajouter les choses similaire-->
     <dimen name="new_add_margin">15sp</dimen>
 
 
 
-    <!--    Pour le login signup and splashscreesn-->
+    <!--    pour l'inscription et les splashscreensn-->
     <dimen name="dimen_30">20dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="card_margin">5dp</dimen>
@@ -45,5 +43,7 @@
     <dimen name="lbl_order_status">20sp</dimen>
     <dimen name="dimen_4dp">4dp</dimen>
     <dimen name="price_with_label">16sp</dimen>
+
+
 
 </resources>
