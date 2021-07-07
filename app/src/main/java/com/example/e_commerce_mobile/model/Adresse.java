@@ -1,9 +1,12 @@
 package com.example.e_commerce_mobile.model;
 
 public class Adresse  {
-    String nom;
+    private static String adresse;
+    private static String nom;
+    private static String adresse_key;
+    /*String nom;
     String adresse;
-    String adresse_key;
+    String adresse_key;*/
 
     public Adresse() {
     }
@@ -14,7 +17,7 @@ public class Adresse  {
         this.adresse_key = adresse_key;
     }
 
-    public String getNom() {
+    public static String getNom() {
         return nom;
     }
 
@@ -22,7 +25,7 @@ public class Adresse  {
         this.nom = nom;
     }
 
-    public String getAdresse() {
+    public static String getAdresse() {
         return adresse;
     }
 
@@ -30,11 +33,13 @@ public class Adresse  {
         this.adresse = adresse;
     }
 
-    public String getAdresse_key() {
+    public static String getAdresse_key() {
         return adresse_key;
     }
 
     public void setAdresse_key(String adresse_key) {
         this.adresse_key = adresse_key;
     }
+
+
 }

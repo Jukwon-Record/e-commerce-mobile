@@ -2,13 +2,16 @@ package com.example.e_commerce_mobile.model;
 
 public class Commande {
 
+    private static String imageProduit;
+    private static String nomProduit;
+    private static String prixProduit;
     private String idCommande;
     private String dateCommande;
     private String statusCommande;
-    private String nomProduit;
-    private String prixProduit;
+    //private String nomProduit;
+    //private String prixProduit;
     private String nomEntreprise;
-    private String imageProduit;
+    //private String imageProduit;
 
     public Commande() {
     }
@@ -47,7 +50,7 @@ public class Commande {
         this.statusCommande = statusCommande;
     }
 
-    public String getNomProduit() {
+    public static String getNomProduit() {
         return nomProduit;
     }
 
@@ -55,7 +58,7 @@ public class Commande {
         this.nomProduit = nomProduit;
     }
 
-    public String getPrixProduit() {
+    public static String getPrixProduit() {
         return prixProduit;
     }
 
@@ -71,7 +74,7 @@ public class Commande {
         this.nomEntreprise = nomEntreprise;
     }
 
-    public String getImageProduit() {
+    public static String getImageProduit() {
         return imageProduit;
     }
 

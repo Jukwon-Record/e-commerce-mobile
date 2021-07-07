@@ -2,11 +2,11 @@ package com.example.e_commerce_mobile.model;
 
 public class Produit {
 
-    private String imageProduit;
-    private String nomProduit;
-    private String prixProduit;
-    private String descriptionProduit;
-    private String nomEntreprise;
+    private String produit_image;
+    private String nom_produit;
+    private String prix_produit;
+    private String description_produit;
+    private String nom_entreprise;
     private String produit_key;
     private String produit_categorie;
     private String entreprise_key;
@@ -14,55 +14,55 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(String imageProduit, String nomProduit, String prixProduit, String descriptionProduit, String nomEntreprise, String produit_key, String produit_categorie, String entreprise_key) {
-        this.imageProduit = imageProduit;
-        this.nomProduit = nomProduit;
-        this.prixProduit = prixProduit;
-        this.descriptionProduit = descriptionProduit;
-        this.nomEntreprise = nomEntreprise;
+    public Produit(String produit_image, String nom_produit, String prix_produit, String description_produit, String nom_entreprise, String produit_key, String produit_categorie, String entreprise_key) {
+        this.produit_image = produit_image;
+        this.nom_produit = nom_produit;
+        this.prix_produit = prix_produit;
+        this.description_produit = description_produit;
+        this.nom_entreprise = nom_entreprise;
         this.produit_key = produit_key;
         this.produit_categorie = produit_categorie;
         this.entreprise_key = entreprise_key;
     }
 
-    public String getImageProduit() {
-        return imageProduit;
+    public String getProduit_image() {
+        return produit_image;
     }
 
-    public void setImageProduit(String imageProduit) {
-        this.imageProduit = imageProduit;
+    public void setProduit_image(String produit_image) {
+        this.produit_image = produit_image;
     }
 
-    public String getNomProduit() {
-        return nomProduit;
+    public String getNom_produit() {
+        return nom_produit;
     }
 
-    public void setNomProduit(String nomProduit) {
-        this.nomProduit = nomProduit;
+    public void setNom_produit(String nom_produit) {
+        this.nom_produit = nom_produit;
     }
 
-    public String getPrixProduit() {
-        return prixProduit;
+    public String getPrix_produit() {
+        return prix_produit;
     }
 
-    public void setPrixProduit(String prixProduit) {
-        this.prixProduit = prixProduit;
+    public void setPrix_produit(String prix_produit) {
+        this.prix_produit = prix_produit;
     }
 
-    public String getDescriptionProduit() {
-        return descriptionProduit;
+    public String getDescription_produit() {
+        return description_produit;
     }
 
-    public void setDescriptionProduit(String descriptionProduit) {
-        this.descriptionProduit = descriptionProduit;
+    public void setDescription_produit(String description_produit) {
+        this.description_produit = description_produit;
     }
 
-    public String getNomEntreprise() {
-        return nomEntreprise;
+    public String getNom_entreprise() {
+        return nom_entreprise;
     }
 
-    public void setNomEntreprise(String nomEntreprise) {
-        this.nomEntreprise = nomEntreprise;
+    public void setNom_entreprise(String nom_entreprise) {
+        this.nom_entreprise = nom_entreprise;
     }
 
     public String getProduit_key() {

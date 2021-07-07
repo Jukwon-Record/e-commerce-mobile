@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".viewModel.VueProduitActivity">
+    tools:context=".viewModel.VueProduitIndividuelActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_produit_unique"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:elevation="0dp"/>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollview_individual"
+        android:id="@+id/scrollview_individuel"
         android:layout_width="match_parent"
         android:layout_height="620dp"
         android:layout_below="@+id/toolbar_produit_unique"
@@ -50,7 +50,7 @@
 
             <TextView
                 android:layout_marginTop="20dp"
-                android:id="@+id/tvPNom"
+                android:id="@+id/tvNomP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -76,7 +76,7 @@
             <TextView
                 android:fontFamily="sans-serif-condensed-light"
                 android:layout_gravity="left"
-                android:id="@+id/tvSNom"
+                android:id="@+id/tvNomV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -105,7 +105,7 @@
             <TextView
                 android:fontFamily="sans-serif-condensed-light"
                 android:layout_marginTop="5dp"
-                android:id="@+id/tvPDesc"
+                android:id="@+id/tvDescP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"

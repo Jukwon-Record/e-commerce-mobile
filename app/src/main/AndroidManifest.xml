@@ -15,14 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommercemobile">
-        <activity android:name=".viewModel.MonCompte"></activity>
+        <activity android:name=".viewModel.ChecksumActivity"></activity>
+        <activity android:name=".viewModel.MonCompte" />
         <activity android:name=".viewModel.UpdateDetailUtilisateurActivity" />
         <activity android:name=".viewModel.ConfirmationPreCommandeActivity" />
         <activity android:name=".viewModel.TransactionActivity" />
         <activity android:name=".viewModel.PrePaiementActivity" />
         <activity android:name=".viewModel.PaiementFinalActivity" />
         <activity android:name=".viewModel.MonAdresseActivity" />
-        <activity android:name=".viewModel.VueProduitActivity" />
+        <activity android:name=".viewModel.VueProduitIndividuelActivity" />
         <activity android:name=".viewModel.OuvrirCompteBusinessActivity" />
         <activity android:name=".viewModel.AjouterNouveauProduitActivity" />
         <activity android:name=".viewModel.AjouterNouveauAdresseActivity" />
