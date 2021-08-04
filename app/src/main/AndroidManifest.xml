@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ecommercemobile">
+        android:theme="@style/AppTheme">
         <activity android:name=".viewModel.PanierListeActivity"></activity>
         <activity android:name=".viewModel.ChecksumActivity" />
         <activity android:name=".viewModel.MonCompteActivity" />
