@@ -293,7 +293,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/desc_product"
+                        android:id="@+id/desc_produit"
                         android:maxLines="4"
                         android:fontFamily="sans-serif-condensed-light"
                         android:layout_marginTop="0dp"

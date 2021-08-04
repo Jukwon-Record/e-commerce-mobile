@@ -4,9 +4,9 @@ public class Panier {
 
     private String nomProduit;
     private String prixProduit;
-    private String imageProduit;
+    private static String imageProduit;
     private String nomEntreprise;
-    private String panier_key;
+    private static String panier_key;
     private String descriptionProduit;
 
     public Panier() {
@@ -37,7 +37,7 @@ public class Panier {
         this.prixProduit = prixProduit;
     }
 
-    public String getImageProduit() {
+    public static String getImageProduit() {
         return imageProduit;
     }
 
@@ -53,7 +53,7 @@ public class Panier {
         this.nomEntreprise = nomEntreprise;
     }
 
-    public String getPanier_key() {
+    public static String getPanier_key() {
         return panier_key;
     }
 

@@ -27,8 +27,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/dimen_30"
             android:visibility="invisible"
-            app:indicatorColor="@android:color/white"
-            app:indicatorName="BallPulseIndicator" />
+            app:indicatorColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/tv_checksum"

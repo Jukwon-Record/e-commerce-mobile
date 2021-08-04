@@ -15,8 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommercemobile">
-        <activity android:name=".viewModel.ChecksumActivity"></activity>
-        <activity android:name=".viewModel.MonCompte" />
+        <activity android:name=".viewModel.PanierListeActivity"></activity>
+        <activity android:name=".viewModel.ChecksumActivity" />
+        <activity android:name=".viewModel.MonCompteActivity" />
         <activity android:name=".viewModel.UpdateDetailUtilisateurActivity" />
         <activity android:name=".viewModel.ConfirmationPreCommandeActivity" />
         <activity android:name=".viewModel.TransactionActivity" />
@@ -30,18 +31,35 @@
         <activity android:name=".viewModel.AproposDeveloppeurActivity" />
         <activity android:name=".viewModel.ConfirmationCommandeActivity" />
         <activity android:name=".viewModel.CommandeActivity" />
-        <activity android:name=".viewModel.SplashScreenActivity" />
         <activity android:name=".viewModel.ListePanierActivity" />
         <activity android:name=".viewModel.ChangerPasswordActivity" />
-        <activity android:name=".viewModel.SignUpActivity" />
-        <activity android:name=".viewModel.LoginActivity" />
-        <activity android:name=".viewModel.MainActivity">
+        <activity android:name=".viewModel.MainActivity" />
+        <!--
+<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+        -->
+        <activity
+            android:name=".viewModel.SplashScreenActivity"
+            android:theme="@style/FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".viewModel.SignUpActivity"
+            android:theme="@style/FullScreen" />
+        <activity
+            android:name=".viewModel.LoginActivity"
+            android:theme="@style/FullScreen" />
     </application>
 
 </manifest>

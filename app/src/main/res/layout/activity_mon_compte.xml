@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewModel.MonCompte">
+    tools:context=".viewModel.MonCompteActivity">
     <androidx.appcompat.widget.Toolbar
         android:background="@color/toolbar"
         android:id="@+id/toolbar_moncompte"

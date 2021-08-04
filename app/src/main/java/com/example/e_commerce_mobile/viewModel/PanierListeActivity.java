@@ -7,6 +7,15 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.example.e_commerce_mobile.R;
 import com.example.e_commerce_mobile.model.CommaSeparate;
 import com.example.e_commerce_mobile.model.Panier;
@@ -21,19 +30,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListePanierActivity extends AppCompatActivity {
+public class PanierListeActivity extends AppCompatActivity {
 
     private Toolbar toolbar6;
 
@@ -42,9 +42,9 @@ public class ListePanierActivity extends AppCompatActivity {
     private CardView cardView3;
 
     private RecyclerView cartRV;
-    private List<Panier> cartList = new ArrayList<>();
+    private List<Panier> panierList = new ArrayList<>();
     private Context mContext;
-    private PanierAdapter cartAdapter;
+    private PanierAdapter panierAdapter;
 
     private DatabaseReference mDatabase;
     private FirebaseUser currentUser;
@@ -81,8 +81,8 @@ public class ListePanierActivity extends AppCompatActivity {
 
 
         cartRV = (RecyclerView) findViewById(R.id.cartRV);
-        cartAdapter = new PanierAdapter(cartList, mContext);
-        cartRV.setAdapter(cartAdapter);
+        panierAdapter = new PanierAdapter(panierList, mContext);
+        cartRV.setAdapter(panierAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         cartRV.setLayoutManager(layoutManager);
 
@@ -105,7 +105,7 @@ public class ListePanierActivity extends AppCompatActivity {
             button7.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent buyIntent = new Intent(ListePanierActivity.this, ChecksumActivity.class);
+                    Intent buyIntent = new Intent(PanierListeActivity.this, ChecksumActivity.class);
                     buyIntent.putExtra("total_price", String.valueOf(total_price));
                     buyIntent.putExtra("total_product_count", String.valueOf(total_product_count));
                     buyIntent.putExtra("from_cart", "yes");
@@ -133,16 +133,16 @@ public class ListePanierActivity extends AppCompatActivity {
     }
 
     private void getTotalPrice() {
-        mDatabase.child("cart").child(user_id).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("panier").child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        Panier cart = ds.getValue(Panier.class);
+                        Panier panier = ds.getValue(Panier.class);
 
                         Integer cost = null;
                         try {
-                            cost = Integer.valueOf(cart.getPrixProduit());
+                            cost = Integer.valueOf(panier.getPrixProduit());
 
                         } catch (Exception e) {
                             cost=0;
@@ -152,7 +152,7 @@ public class ListePanierActivity extends AppCompatActivity {
 
                     }
                     String csptotalprice= CommaSeparate.getFormatedNumber(""+total_price);
-                    tvPrice.setText(String.valueOf("FCFA" + csptotalprice));
+                    tvPrice.setText(String.valueOf("₹" + csptotalprice));
 
                 }
 
@@ -168,15 +168,15 @@ public class ListePanierActivity extends AppCompatActivity {
 
 
     private void getCartDetails() {
-        mDatabase.child("cart").child(user_id).addChildEventListener(new ChildEventListener() {
+        mDatabase.child("panier").child(user_id).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists()) {
                     textView.setVisibility(View.INVISIBLE);
                     cardView3.setVisibility(View.VISIBLE);
-                    Panier cart = dataSnapshot.getValue(Panier.class);
-                    cartList.add(cart);
-                    cartAdapter.notifyDataSetChanged();
+                    Panier panier = dataSnapshot.getValue(Panier.class);
+                    panierList.add(panier);
+                    panierAdapter.notifyDataSetChanged();
                 } else if (!dataSnapshot.exists()) {
                     textView.setVisibility(View.GONE);
                     tvPrice.setVisibility(View.GONE);
@@ -193,10 +193,10 @@ public class ListePanierActivity extends AppCompatActivity {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
                 String key = dataSnapshot.getKey();
-                for (Panier c : cartList) {
+                for (Panier c : panierList) {
                     if (key.equals(c.getPanier_key())) {
-                        cartList.remove(c);
-                        cartAdapter.notifyDataSetChanged();
+                        panierList.remove(c);
+                        panierAdapter.notifyDataSetChanged();
                         break;
                     }
                 }
@@ -223,7 +223,7 @@ public class ListePanierActivity extends AppCompatActivity {
 
 
     private void sendToLogin() {
-        Intent loginIntent = new Intent(ListePanierActivity.this, long.class);
+        Intent loginIntent = new Intent(PanierListeActivity.this, long.class);
         startActivity(loginIntent);
         finish();
     }

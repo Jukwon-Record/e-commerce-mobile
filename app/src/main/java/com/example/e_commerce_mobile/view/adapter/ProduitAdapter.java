@@ -102,7 +102,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
             }
         });
 
-        // Todo :: yet not resolved
+        // Todo :: Pas encore resolu
         // facing problem of crash at this button in SDK >=28
 
 
