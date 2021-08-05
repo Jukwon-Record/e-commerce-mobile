@@ -166,13 +166,13 @@ public class MonCompteActivity extends AppCompatActivity {
                     String smobilen=dataSnapshot.child("mobilenumber").getValue().toString();
 
                     name.setText(sname);
-                    mobilenumber.setText("+91 "+smobilen);
+                    mobilenumber.setText("+228 "+smobilen);
 
 
 
                 }catch (Exception e){
                     name.setText("Update user details");
-                    mobilenumber.setText("+91 "+"Not Found");
+                    mobilenumber.setText("+228 "+"Not Found");
                 }
 
                 // for email

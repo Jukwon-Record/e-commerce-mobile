@@ -48,7 +48,7 @@ public class UpdateDetailUtilisateurActivity extends AppCompatActivity {
 
 
         progressDialog=new ProgressDialog(this);
-        progressDialog.setTitle("Vauillez attendr..");
+        progressDialog.setTitle("Veuillez attendre..");
         progressDialog.setMessage("Mise à jour..");
         progressDialog.setCanceledOnTouchOutside(false);
 
@@ -121,7 +121,7 @@ public class UpdateDetailUtilisateurActivity extends AppCompatActivity {
             return;
         }
         else {
-            if (supdate2.length()!=10){
+            if (supdate2.length()!=8){
                 update2.setError("Invalid Number");
                 return;
             }

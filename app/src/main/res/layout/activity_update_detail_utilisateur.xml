@@ -35,7 +35,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_marginTop="10sp"
-        app:counterMaxLength="10"
+        app:counterMaxLength="8"
         app:counterEnabled="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
