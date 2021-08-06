@@ -25,15 +25,6 @@
         android:text="Aucun article trouvé !" />
 
 
-    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
-        android:id="@+id/loader_main_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_color"
-        android:layout_gravity="center"
-        android:visibility="visible"
-        android:clickable="false"
-        app:indicatorColor="#FFFFFF" />
 
 
     <include layout="@layout/content_main" />

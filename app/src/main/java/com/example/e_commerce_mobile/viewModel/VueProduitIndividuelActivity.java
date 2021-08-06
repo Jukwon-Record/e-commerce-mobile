@@ -45,7 +45,7 @@ public class VueProduitIndividuelActivity extends AppCompatActivity {
     private String id_utilisateur;
     private String email_id;
 
-    private String produit_key;
+    private String key_produit;
     private String nom_produit;
     private String prix_produit;
     private String description_produit;
@@ -80,14 +80,14 @@ public class VueProduitIndividuelActivity extends AppCompatActivity {
         tvNomV = findViewById(R.id.tvNomVendeur);
         produitIV = findViewById(R.id.produitIV);
         button2 = findViewById(R.id.btn_acheter_now);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.btn_ajouter_panier);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
         Bundle bundle = getIntent().getExtras();
-        produit_key = bundle.get("key_produit").toString().trim();
+        key_produit = bundle.get("key_produit").toString().trim();
         produit_categorie = bundle.get("produit_categorie").toString().trim();
 
 
@@ -96,7 +96,7 @@ public class VueProduitIndividuelActivity extends AppCompatActivity {
         } else {
             if (bundle!= null) {
                 id_utilisateur = currentUser.getUid();
-                mDatabase.child("produits").child(produit_categorie).child(produit_key).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("produits").child(produit_categorie).child(key_produit).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         description_produit = dataSnapshot.child("description_produit").getValue().toString();

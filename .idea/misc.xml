@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_notifications_action_bar.xml" value="0.209375" />
         <entry key="app/src/main/res/layout/activity_ajouter_nouveau_adresse.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_ajouter_nouveau_produit.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_checksum.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_confirmation_commande.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -19,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_mon_compte.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_ouvrir_compte_business.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_paiement_final.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_panier_liste.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_update_detail_utilisateur.xml" value="0.22" />
@@ -27,6 +29,7 @@
         <entry key="app/src/main/res/layout/app_bar_main1.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/element_liste_commande.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/element_liste_produit.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/listelement_transaction.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/panier_liste_element.xml" value="0.19322916666666667" />

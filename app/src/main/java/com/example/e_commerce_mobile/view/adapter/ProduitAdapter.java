@@ -62,6 +62,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
         final Produit produits = listProduit.get(listProduit.size()-position-1);
+        //final Produit produits = listProduit.get(position);
 
 
         //loader.hide();
@@ -167,7 +168,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
             PrixProduit = itemView.findViewById(R.id.tvPrixProduit);
             NomVendeur = itemView.findViewById(R.id.tvNomVendeur);
             productcv = itemView.findViewById(R.id.produitcv1);
-            buy_now_btn_pl = itemView.findViewById(R.id.btn_acheter_now);
+            buy_now_btn_pl = itemView.findViewById(R.id.btn_acheternow_listProduit);
             button15 = itemView.findViewById(R.id.button15);
         }
     }
