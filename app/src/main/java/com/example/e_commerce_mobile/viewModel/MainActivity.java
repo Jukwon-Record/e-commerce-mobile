@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mContext=MainActivity.this;
 
 //        tv_noitem=findViewById(R.id.tv_main_activity_no_item);
-       loader=findViewById(R.id.loader_main_activity);
-        loader.setClickable(false);
+      // loader=findViewById(R.id.loader_main_activity);
+      //  loader.setClickable(false);
 
         Toolbar toolbar = findViewById(R.id.toolbar); // toolbar initialization
         setSupportActionBar(toolbar);   // setting it on action bar
