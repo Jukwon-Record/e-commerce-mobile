@@ -123,7 +123,7 @@ public class MonCompteActivity extends AppCompatActivity {
 
                     Intent intent=new Intent(getApplicationContext(),ChangerPasswordActivity.class);
 
-                    intent.putExtra("title","Changer Password");
+                    intent.putExtra("titre","Changer Password");
                     startActivity(intent);
                 }
             });
@@ -162,7 +162,7 @@ public class MonCompteActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // for User profile
                 try {
-                    String sname=dataSnapshot.child("name").getValue().toString();
+                    String sname=dataSnapshot.child("nom").getValue().toString();
                     String smobilen=dataSnapshot.child("mobilenumber").getValue().toString();
 
                     name.setText(sname);
@@ -171,8 +171,8 @@ public class MonCompteActivity extends AppCompatActivity {
 
 
                 }catch (Exception e){
-                    name.setText("Update user details");
-                    mobilenumber.setText("+228 "+"Not Found");
+                    name.setText("Mettre à jour les détails utilisateur");
+                    mobilenumber.setText("+228 "+"Pas trouvé");
                 }
 
                 // for email
@@ -183,21 +183,21 @@ public class MonCompteActivity extends AppCompatActivity {
 
                 }catch (Exception e){
 
-                    email.setText("Not Found");
+                    email.setText("Introuvable");
                 }
 
 
                 // for address
 
                 try {
-                    String defaultname=dataSnapshot.child("DefaultAddress").child("name").getValue().toString();
-                    String defaultadd=dataSnapshot.child("DefaultAddress").child("address").getValue().toString();
+                    String defaultname=dataSnapshot.child("DefaultAddress").child("nom").getValue().toString();
+                    String defaultadd=dataSnapshot.child("DefaultAddress").child("adresse").getValue().toString();
                     String finaladdress=defaultname+"\n"+defaultadd;
                     tv_default__address.setText(finaladdress);
 
 
                 }catch (Exception e){
-                    tv_default__address.setText("Please Update Address");
+                    tv_default__address.setText("Veuillez mettre à jour l'adresse");
                 }
 
             }
@@ -213,21 +213,22 @@ public class MonCompteActivity extends AppCompatActivity {
 
 
     private void businesscheck(){
-        mDatabase.child("BusinessAccounts").child(user_id).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Comptes_entreprise").child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
-                    String accsts=dataSnapshot.child("isapproved").getValue().toString().toLowerCase().trim();
+                    String accsts=dataSnapshot.child("estapprouve").getValue().toString().toLowerCase().trim();
 
                     businessflag=accsts;
 
-                    if (accsts.equals("yes")){
-                        tv_business_account.setText("MANAGE YOUR ACCOUNT");
+                    if (accsts.equals("oui")){
+                        tv_business_account.setText("GÉRER VOTRE COMPTE");
                         tv_business_account.setVisibility(View.VISIBLE);
                         tv_business_account.setClickable(true);
                     }
-                    else if (accsts.equals("no")){
-                        tv_business_account.setText("Your Account is yet to Approve\nPlease Wait");
+                    else if (accsts.equals("non")){
+                        tv_business_account.setText("Votre compte n'a pas encore été approuvé\n" +
+                                "Veuillez attendre");
                         tv_business_account.setTextColor(Color.GREEN);
                         tv_business_account.setClickable(false);
                         tv_business_account.setVisibility(View.VISIBLE);
@@ -267,12 +268,13 @@ public class MonCompteActivity extends AppCompatActivity {
             tv_business_account.setVisibility(View.VISIBLE);
             startActivity(new Intent(MonCompteActivity.this,OuvrirCompteBusinessActivity.class));
         }
-        else if (businessflag.equals("yes")){
-            Toast.makeText(getApplicationContext(),"Welcome to Business Area",Toast.LENGTH_LONG).show();
+        else if (businessflag.equals("oui")){
+            Toast.makeText(getApplicationContext(),"Bienvenue dans l'Espace Affaires",Toast.LENGTH_LONG).show();
             startActivity(new Intent(getApplicationContext(),AjouterNouveauProduitActivity.class));
         }
-        else if (businessflag.equals("no")){
-            Toast.makeText(getApplicationContext(),"Your Account is yet to Approve\nPlease Wait",Toast.LENGTH_LONG).show();
+        else if (businessflag.equals("non")){
+            Toast.makeText(getApplicationContext(),"Votre compte n'a pas encore été approuvé\n" +
+                    "Veuillez attendre",Toast.LENGTH_LONG).show();
 
         }
         else {

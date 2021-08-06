@@ -84,7 +84,7 @@ public class UpdateDetailUtilisateurActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 try {
-                    update1.getEditText().setText(dataSnapshot.child("name").getValue().toString());
+                    update1.getEditText().setText(dataSnapshot.child("nom").getValue().toString());
                     update2.getEditText().setText(dataSnapshot.child("mobilenumber").getValue().toString());
                     progressDialog.dismiss();
                 }catch (Exception e){
@@ -113,23 +113,23 @@ public class UpdateDetailUtilisateurActivity extends AppCompatActivity {
         String supdate2=update2.getEditText().getText().toString().trim();
 
         if (supdate1.isEmpty()){
-            update1.setError("Enter name");
+            update1.setError("Entez nom");
             return;
         }
         if (supdate2.isEmpty()){
-            update2.setError("Enter Mobile Number");
+            update2.setError("Entez Numero Mobile");
             return;
         }
         else {
             if (supdate2.length()!=8){
-                update2.setError("Invalid Number");
+                update2.setError("Numéro invalide");
                 return;
             }
         }
         progressDialog.show();
 
         Map<String, Object> data=new HashMap<>();
-        data.put("name",supdate1);
+        data.put("nom",supdate1);
         data.put("mobilenumber",supdate2);
 
 

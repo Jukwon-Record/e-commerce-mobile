@@ -127,13 +127,13 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
             public void onClick(View v) {
                 String cart_key = mDatabase.child("cart").child(user_id).push().getKey();
                 HashMap<String, Object> dataMap = new HashMap<>();
-                dataMap.put("product_name", produits.getNom_produit());
-                dataMap.put("product_price", produits.getPrix_produit());
-                dataMap.put("product_image", produits.getProduit_image());
-                dataMap.put("company_name", produits.getNom_entreprise());
-                dataMap.put("cart_key", cart_key);
-                dataMap.put("product_description", produits.getDescription_produit());
-                mDatabase.child("cart").child(user_id).child(cart_key).updateChildren(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                dataMap.put("nom_produit", produits.getNom_produit());
+                dataMap.put("prix_produit", produits.getPrix_produit());
+                dataMap.put("image_produit", produits.getProduit_image());
+                dataMap.put("nom_entreprise", produits.getNom_entreprise());
+                dataMap.put("key_panier", cart_key);
+                dataMap.put("description_produit", produits.getDescription_produit());
+                mDatabase.child("panier").child(user_id).child(cart_key).updateChildren(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
@@ -163,11 +163,11 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
             super(itemView);
 
             productIV = itemView.findViewById(R.id.produitIV);
-            NomProduit = itemView.findViewById(R.id.tvNomP);
-            PrixProduit = itemView.findViewById(R.id.tvPrixP);
-            NomVendeur = itemView.findViewById(R.id.tvNomV);
+            NomProduit = itemView.findViewById(R.id.tvNomProduit);
+            PrixProduit = itemView.findViewById(R.id.tvPrixProduit);
+            NomVendeur = itemView.findViewById(R.id.tvNomVendeur);
             productcv = itemView.findViewById(R.id.produitcv1);
-            buy_now_btn_pl = itemView.findViewById(R.id.button2);
+            buy_now_btn_pl = itemView.findViewById(R.id.btn_acheter_now);
             button15 = itemView.findViewById(R.id.button15);
         }
     }

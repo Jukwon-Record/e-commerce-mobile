@@ -48,7 +48,7 @@ public class OuvrirCompteBusinessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ouvrir_compte_business);
 
         toolbar=findViewById(R.id.toolbar_apply_business_accout);
-        toolbar.setTitle("Apply for Business Account");
+        toolbar.setTitle("Demander un compte d'entreprise");
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -59,8 +59,8 @@ public class OuvrirCompteBusinessActivity extends AppCompatActivity {
         });
 
         progressDialog=new ProgressDialog(this);
-        progressDialog.setTitle("Please wait..");
-        progressDialog.setMessage("Updating..");
+        progressDialog.setTitle("Veuillez patienter..");
+        progressDialog.setMessage("Mise à jour..");
         progressDialog.setCanceledOnTouchOutside(false);
 
         tv_apply_business1=findViewById(R.id.nouveauBusiness_Compte1);
@@ -102,65 +102,65 @@ public class OuvrirCompteBusinessActivity extends AppCompatActivity {
         String string_apply_business6=tv_apply_business6.getEditText().getText().toString().trim();
 
         if (string_apply_business1.isEmpty()){
-            tv_apply_business1.setError("Can't be Empty");
+            tv_apply_business1.setError("Ne peut pas être vide");
             return;
 
         }
         if (string_apply_business2.isEmpty()){
-            tv_apply_business2.setError("Can't be Empty");
+            tv_apply_business2.setError("Ne peut pas être vide");
             return;
 
         }
         if (string_apply_business3.isEmpty()){
-            tv_apply_business3.setError("Can't be Empty");
+            tv_apply_business3.setError("Ne peut pas être vide");
             return;
 
         }
         if (string_apply_business4.isEmpty()){
-            tv_apply_business4.setError("Can't be Empty");
+            tv_apply_business4.setError("Ne peut pas être vide");
             return;
 
         }
         if (string_apply_business5.isEmpty()){
-            tv_apply_business5.setError("Can't be Empty");
+            tv_apply_business5.setError("Ne peut pas être vide");
             return;
 
         }
         if (string_apply_business6.isEmpty()){
-            tv_apply_business6.setError("Can't be Empty");
+            tv_apply_business6.setError("Ne peut pas être vide");
             return;
 
         }
         else if (string_apply_business6.length()<=4){
-            tv_apply_business6.setError("Please Enter Strong Password");
+            tv_apply_business6.setError("Veuillez entrer un mot de passe fort");
             return;
         }
         progressDialog.show();
 
         Map<String,Object> data=new HashMap();
-        data.put("company_owner",string_apply_business1);
-        data.put("company_name",string_apply_business2);
-        data.put("office_address",string_apply_business3);
-        data.put("office_phoneno",string_apply_business4);
+        data.put("proprietaire_entreprise",string_apply_business1);
+        data.put("nom_entreprise",string_apply_business2);
+        data.put("adresse_entreprise",string_apply_business3);
+        data.put("nophone_entreprise",string_apply_business4);
         data.put("gstin",string_apply_business5);
-        data.put("transactionpass",string_apply_business6);
+        data.put("passtransaction",string_apply_business6);
 
-        data.put("isapproved","no");
-        data.put("company_key",user_id);
+        data.put("estapprouve","non");
+        data.put("key_entreprise",user_id);
 
-        mDatabase.child("BusinessAccounts").child(user_id).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mDatabase.child("Comptes_entreprise").child(user_id).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Applied Successfully",Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(),"Please Wait for 15 day until we verify your data",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Demande réussie",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Veuillez attendre 15 jours jusqu'à ce que nous vérifiions vos données",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(),SplashScreenActivity.class));
                     finishAffinity();
                 }
                 else {
                     progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Échoué",Toast.LENGTH_LONG).show();
                 }
             }
         });

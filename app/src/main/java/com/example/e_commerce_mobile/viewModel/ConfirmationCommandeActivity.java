@@ -79,13 +79,13 @@ public class ConfirmationCommandeActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         //product_key = bundle.get("product_key").toString();
-        product_name = bundle.get("product_name").toString();
-        product_price = bundle.get("product_price").toString();
-        product_description = bundle.get("product_description").toString();
-        seller_name = bundle.get("company_name").toString();
-        product_image = bundle.get("product_image").toString();
-        name = bundle.get("name").toString();
-        address = bundle.get("address").toString();
+        product_name = bundle.get("nom_produit").toString();
+        product_price = bundle.get("prix_produit").toString();
+        product_description = bundle.get("description_produit").toString();
+        seller_name = bundle.get("nom_entreprise").toString();
+        product_image = bundle.get("image_produit").toString();
+        name = bundle.get("nom").toString();
+        address = bundle.get("adresse").toString();
 
         if (currentUser==null){
             sendToLogin();
@@ -147,15 +147,15 @@ public class ConfirmationCommandeActivity extends AppCompatActivity {
     private void redirectPrefinalPayment(){
 
         Intent singleproducIntent = new Intent(ConfirmationCommandeActivity.this, PrePaiementActivity.class);
-        singleproducIntent.putExtra("name", name);
-        singleproducIntent.putExtra("address", address);
-        singleproducIntent.putExtra("total_product_count", "1");
-        singleproducIntent.putExtra("total_price", product_price);
-        singleproducIntent.putExtra("product_image", product_image);
-        singleproducIntent.putExtra("product_name", product_name);
-        singleproducIntent.putExtra("product_description", product_description);
-        singleproducIntent.putExtra("company_name", seller_name);
-        singleproducIntent.putExtra("order_typeflag", "single");
+        singleproducIntent.putExtra("nom", name);
+        singleproducIntent.putExtra("adresse", address);
+        singleproducIntent.putExtra("decompte_total_produit", "1");
+        singleproducIntent.putExtra("prix_total", product_price);
+        singleproducIntent.putExtra("image_produit", product_image);
+        singleproducIntent.putExtra("nom_produit", product_name);
+        singleproducIntent.putExtra("description_produit", product_description);
+        singleproducIntent.putExtra("nom_entrprise", seller_name);
+        singleproducIntent.putExtra("typeflag_commande", "single");
         startActivity(singleproducIntent);
         finish();
 

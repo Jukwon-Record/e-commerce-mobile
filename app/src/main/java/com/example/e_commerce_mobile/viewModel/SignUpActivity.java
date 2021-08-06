@@ -78,23 +78,23 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 if (name.isEmpty()){
-                    etRName.setError("Enter name");
+                    etRName.setError("Entrez le nom");
                     return;
                 }else if(mobileno.isEmpty() || mobileno.length()!=8){
-                    etRMobileno.setError("Enter valid Mobile No");
+                    etRMobileno.setError("Entrez un numéro mobile valide");
                     return;
                 }
 
                 else if (email.isEmpty()) {
 //                    progressBar2.setVisibility(View.INVISIBLE);
-                    etREmail.setError("Enter Email");
+                    etREmail.setError("Entrez e-mail");
                     return;
                 } else if (password.isEmpty()) {
 //                    progressBar2.setVisibility(View.INVISIBLE);
-                    etRPassword.setError("Enter Password");
+                    etRPassword.setError("Entez Password");
                     return;
                 } else if (password.isEmpty() || password.length()<6) {
-                    etRPassword.setError("Enter strong Password");
+                    etRPassword.setError("Entrez un mot de passe fort");
                     alertpassword();
                     return;
                 } else {
@@ -106,7 +106,7 @@ public class SignUpActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
 
                                 Map<String,Object> data=new HashMap<>();
-                                data.put("name",name);
+                                data.put("nom",name);
                                 data.put("mobilenumber",mobileno);
                                 data.put("email",email);
                                 currentUser = mAuth.getCurrentUser();
@@ -118,19 +118,19 @@ public class SignUpActivity extends AppCompatActivity {
                                         if(task.isSuccessful()){
 
 
-                                            Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "Enregistré avec succès", Toast.LENGTH_SHORT).show();
                                             mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
-                                                        Toast.makeText(getApplicationContext(), "Email verification sent", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getApplicationContext(), "Vérification par e-mail envoyée", Toast.LENGTH_LONG).show();
 
 //                                            progressBar2.setVisibility(View.INVISIBLE);
 
                                                     } else {
                                                         ll.setClickable(true);
                                                         String errMsg = task.getException().getMessage();
-                                                        Toast.makeText(getApplicationContext(), "Error: " + errMsg, Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getApplicationContext(), "Erreur: " + errMsg, Toast.LENGTH_LONG).show();
                                                     }
                                                 }
                                             });
@@ -156,7 +156,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 loader.setVisibility(View.INVISIBLE);
                                 ll.setClickable(true);
                                 String errMsg = task.getException().getMessage();
-                                Toast.makeText(getApplicationContext(), "Error: " + errMsg, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Erreur: " + errMsg, Toast.LENGTH_LONG).show();
                                 mAuth.signOut();
                             }
                         }
@@ -172,8 +172,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void alertpassword(){
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage("Please Enter Strong Password\nYour Password should be at least 6 characters having upper" +
-                ",lower case letters,numbers and Special symbol like !@%$*& ");
+        builder1.setMessage("Veuillez saisir un mot de passe fort\nVotre mot de passe doit comporter au moins 6 caractères avec majuscule" +
+                ", lettres minuscules, chiffres et symbole spécial comme !@%$*& ");
         builder1.setCancelable(false);
 
         builder1.setPositiveButton(

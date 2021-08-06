@@ -74,12 +74,12 @@ public class VueProduitIndividuelActivity extends AppCompatActivity {
         });
 
 
-        tvNomP = findViewById(R.id.tvNomP);
+        tvNomP = findViewById(R.id.tvNomProduit);
         tvPrixP = findViewById(R.id.tvPrixP);
         tvDescP = findViewById(R.id.tvDescP);
-        tvNomV = findViewById(R.id.tvNomV);
+        tvNomV = findViewById(R.id.tvNomVendeur);
         produitIV = findViewById(R.id.produitIV);
-        button2 = findViewById(R.id.button2);
+        button2 = findViewById(R.id.btn_acheter_now);
         button = findViewById(R.id.button);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -87,7 +87,7 @@ public class VueProduitIndividuelActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
 
         Bundle bundle = getIntent().getExtras();
-        produit_key = bundle.get("produit_key").toString().trim();
+        produit_key = bundle.get("key_produit").toString().trim();
         produit_categorie = bundle.get("produit_categorie").toString().trim();
 
 
@@ -102,7 +102,7 @@ public class VueProduitIndividuelActivity extends AppCompatActivity {
                         description_produit = dataSnapshot.child("description_produit").getValue().toString();
                         nom_produit = dataSnapshot.child("nom_produit").getValue().toString();
                         prix_produit = dataSnapshot.child("prix_produit").getValue().toString();
-                        image_produit = dataSnapshot.child("product_image").getValue().toString();
+                        image_produit = dataSnapshot.child("image_produit").getValue().toString();
                         nom_vendeur = dataSnapshot.child("nom_entreprise").getValue().toString();
 
                         showProduit();

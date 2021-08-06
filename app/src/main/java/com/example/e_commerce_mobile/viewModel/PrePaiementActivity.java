@@ -51,15 +51,15 @@ public class PrePaiementActivity extends AppCompatActivity {
 
 
         Bundle bundle = getIntent().getExtras();
-        name = bundle.get("name").toString();
-        address = bundle.get("address").toString();
-        total_price = bundle.get("total_price").toString();
-        total_product_count = bundle.get("total_product_count").toString();
-        ordertypeflag=bundle.get("order_typeflag").toString();
-        product_image=bundle.get("product_image").toString();
-        product_name=bundle.get("product_name").toString();
-        product_description=bundle.get("product_description").toString();
-        company_name=bundle.get("company_name").toString();
+        name = bundle.get("nom").toString();
+        address = bundle.get("adresse").toString();
+        total_price = bundle.get("prix_total").toString();
+        total_product_count = bundle.get("decompte_total_produit").toString();
+        ordertypeflag=bundle.get("typeflag_commande").toString();
+        product_image=bundle.get("image_produit").toString();
+        product_name=bundle.get("nom_produit").toString();
+        product_description=bundle.get("description_produit").toString();
+        company_name=bundle.get("nom_entreprise").toString();
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -95,18 +95,18 @@ public class PrePaiementActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
 
-                    mDatabase.child("users").child(user_id).child("Historique des transactions").child(Orderid).child("order_id").setValue(Orderid);
+                    mDatabase.child("utilisateurs").child(user_id).child("Historique des transactions").child(Orderid).child("order_id").setValue(Orderid);
                     Intent intent=new Intent(PrePaiementActivity.this,PaiementFinalActivity.class);
                     intent.putExtra("order_id",Orderid);
-                    intent.putExtra("name",name);
-                    intent.putExtra("address",address);
-                    intent.putExtra("total_price",total_price);
-                    intent.putExtra("total_product_count",total_product_count);
-                    intent.putExtra("order_typeflag",ordertypeflag);
-                    intent.putExtra("product_image",product_image);
-                    intent.putExtra("product_name",product_name);
-                    intent.putExtra("product_description",product_description);
-                    intent.putExtra("company_name",company_name);
+                    intent.putExtra("nom",name);
+                    intent.putExtra("adresse",address);
+                    intent.putExtra("prix_total",total_price);
+                    intent.putExtra("decompte_total_produit",total_product_count);
+                    intent.putExtra("typeflag_commande",ordertypeflag);
+                    intent.putExtra("image_produit",product_image);
+                    intent.putExtra("nom_produit",product_name);
+                    intent.putExtra("description_produit",product_description);
+                    intent.putExtra("nom_entreprise",company_name);
                     startActivity(intent);
                     finish();
 

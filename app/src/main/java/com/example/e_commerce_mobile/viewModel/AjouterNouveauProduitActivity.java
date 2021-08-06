@@ -89,7 +89,7 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
 
         progressDoalog = new ProgressDialog(AjouterNouveauProduitActivity.this);
         progressDoalog.setMax(100);
-        progressDoalog.setMessage("S'il vous plaît, attendez...");
+        progressDoalog.setMessage("Veuillez attendre...");
         progressDoalog.setTitle("Le fichier est en cours de téléchargement");
         progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDoalog.setCanceledOnTouchOutside(false);
@@ -126,14 +126,14 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
 
         arrylist = new ArrayList<String>();
         arrylist.add("Sélectionnez la catégorie de produit");
-        arrylist.add("Electronics");
-        arrylist.add("Appliances");
-        arrylist.add("Fashion");
-        arrylist.add("Furniture");
-        arrylist.add("Grocery");
-        arrylist.add("Beauty_Care");
+        arrylist.add("Epicerie");
+        arrylist.add("TV & appareils");
+        arrylist.add("Mode");
+        arrylist.add("Maison et Meuble");
+        arrylist.add("Electronique");
+        arrylist.add("Beauté & Soins personnels");
         arrylist.add("Sports");
-        arrylist.add("Books");
+        arrylist.add("Livres");
 
         ArrayAdapter<String> adapter;
         adapter=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,arrylist);
@@ -146,29 +146,29 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
             user_id = mAuth.getCurrentUser().getUid();
 
 
-            mDatabase.child("BusinessAccounts").child(user_id).child("isapproved").addValueEventListener(new ValueEventListener() {
+            mDatabase.child("Comptes_entreprise").child(user_id).child("estapprouve").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                     try {
                         String sts=dataSnapshot.getValue().toString().toLowerCase().trim();
 
-                        if (sts.equals("no")){
+                        if (sts.equals("non")){
                             mAuth.signOut();
                             sendToLogin();
                             finishAffinity();
                         }
-                        else if(sts.equals("yes")) {
+                        else if(sts.equals("oui")) {
                             llr.setVisibility(View.VISIBLE);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(),"Please Contact Customer Care",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Veuillez contacter le service client",Toast.LENGTH_LONG).show();
                             mAuth.signOut();
                             sendToLogin();
                             finishAffinity();
                         }
                     }catch (Exception e){
-                        Toast.makeText(getApplicationContext(),"Please Contact Customer Care",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Veuillez contacter le service client",Toast.LENGTH_LONG).show();
                         mAuth.signOut();
                         sendToLogin();
                         finishAffinity();
@@ -188,7 +188,7 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_PICK);
-                    startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST);
+                    startActivityForResult(Intent.createChooser(intent, "Sélectionnez une image"), PICK_IMAGE_REQUEST);
                 }
             });
 
@@ -227,25 +227,25 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
         product_description = etAddProductDescription.getText().toString();
 
         if (product_name.isEmpty()) {
-            etAddProductName.setError("Enter product name");
+            etAddProductName.setError("Entrez le nom du produit");
         } else if (product_price.isEmpty()) {
-            etAddProductPrice.setError("Enter product price");
+            etAddProductPrice.setError("Saisissez le prix du produit");
         } else if (product_description.isEmpty()) {
-            etAddProductDescription.setError("Enter product description");
-        } else  if (item.equals("Select Product Category")) {
-            Toast.makeText(getApplicationContext(), "Please select a category", Toast.LENGTH_LONG).show();
+            etAddProductDescription.setError("Entrez la description du produit");
+        } else  if (item.equals("Sélectionnez la catégorie de produit")) {
+            Toast.makeText(getApplicationContext(), "Veuillez sélectionner une catégorie", Toast.LENGTH_LONG).show();
         }else  {
 
             progressDoalog.show();
 
             company_key=user_id;
 
-            mDatabase.child("BusinessAccounts").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            mDatabase.child("Comptes_entreprise").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()){
                         try {
-                            company_name=dataSnapshot.child("company_name").getValue().toString().trim();
+                            company_name=dataSnapshot.child("nom_entreprise").getValue().toString().trim();
                             uploadDetails();
 
                         }catch (Exception e){
@@ -267,7 +267,7 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
 
 
 
-    // for image URL
+    // pour URL de l'image
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -288,7 +288,7 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
 
             byte [] data=null;
 
-            // image compression
+            //  compression d'image
             try {
                 Bitmap bmp = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath); // getting image from gallery
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -298,16 +298,16 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
 
             }
 
-            //image compression done
+            // compression image effectué
 
-            product_key = mDatabase.child("products").child(item).push().getKey();
+            product_key = mDatabase.child("produits").child(item).push().getKey();
 
             final Long ts_long = System.currentTimeMillis()/1000;
             final String ts = ts_long.toString();
-            final StorageReference childRef = storageReference.child("product_images/" + product_key+ ".jpg");
+            final StorageReference childRef = storageReference.child("produit_images/" + product_key+ ".jpg");
             final UploadTask uploadTask = childRef.putBytes(data);
 
-            // Progress dialog box implemented
+            // Progress dialog box implémenté
             uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
@@ -347,26 +347,26 @@ public class AjouterNouveauProduitActivity extends AppCompatActivity {
 
                                     final HashMap<String, Object> dataMap = new HashMap<>();
 
-                                    dataMap.put("product_image", mUri);
-                                    dataMap.put("product_name", product_name);
-                                    dataMap.put("product_price", product_price);
-                                    dataMap.put("product_description", product_description);
-                                    dataMap.put("company_key", company_key);
-                                    dataMap.put("company_name", company_name);
-                                    dataMap.put("product_added_time", ts_long);
-                                    dataMap.put("product_category", item);
-                                    dataMap.put("product_key", product_key);
+                                    dataMap.put("image_produit", mUri);
+                                    dataMap.put("produit_nom", product_name);
+                                    dataMap.put("prix_produit", product_price);
+                                    dataMap.put("description_produit", product_description);
+                                    dataMap.put("key_entreprise", company_key);
+                                    dataMap.put("nom_entreprise", company_name);
+                                    dataMap.put("heure_produit_ajoute", ts_long);
+                                    dataMap.put("categorie_produit", item);
+                                    dataMap.put("key_produit", product_key);
 
-                                    mDatabase.child("products").child(item).child(product_key).setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    mDatabase.child("produits").child(item).child(product_key).setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                mDatabase.child("Comptes d'entreprise").child(company_key).child("produits").child(product_key).setValue(dataMap);
+                                                mDatabase.child("Comptes_entreprise").child(company_key).child("produits").child(product_key).setValue(dataMap);
                                                 progressDoalog.dismiss();
                                                 Toast.makeText(getApplicationContext(), "Produit ajouté avec succès", Toast.LENGTH_LONG).show();
                                                 Intent settingsIntent = new Intent(getApplicationContext(), AjouterNouveauProduitActivity.class);
                                                 startActivity(settingsIntent);
-                                                Toast.makeText(getApplicationContext(), "Ajouter plus de produit", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), "Ajoutez plus de produit", Toast.LENGTH_LONG).show();
                                                 finish();
 
                                             } else {

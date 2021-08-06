@@ -39,13 +39,13 @@ public class ConfirmationPreCommandeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation_pre_commande);
 
         Bundle bundle = getIntent().getExtras();
-        name = bundle.get("name").toString();
-        address = bundle.get("address").toString();
-        total_price = bundle.get("total_price").toString();
-        total_product_count = bundle.get("total_product_count").toString();
+        name = bundle.get("nom").toString();
+        address = bundle.get("adresse").toString();
+        total_price = bundle.get("prix_total").toString();
+        total_product_count = bundle.get("decompte_total_produit").toString();
 
         toolbar13 = findViewById(R.id.toolbar13);
-        toolbar13.setTitle("Order Summary");
+        toolbar13.setTitle("Récapitulatif de la commande");
         toolbar13.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar13);
         toolbar13.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back));
@@ -88,16 +88,16 @@ public class ConfirmationPreCommandeActivity extends AppCompatActivity {
 
     private void redirectPrefinalPayment(){
         Intent cartBuyIntent = new Intent(ConfirmationPreCommandeActivity.this, PrePaiementActivity.class);
-        cartBuyIntent.putExtra("name", name);
-        cartBuyIntent.putExtra("address", address);
-        cartBuyIntent.putExtra("total_product_count", total_product_count);
-        cartBuyIntent.putExtra("total_price", String.valueOf(total_price));
-        cartBuyIntent.putExtra("order_typeflag", "cart");
+        cartBuyIntent.putExtra("nom", name);
+        cartBuyIntent.putExtra("adresse", address);
+        cartBuyIntent.putExtra("decompte_total_produit", total_product_count);
+        cartBuyIntent.putExtra("prix_total", String.valueOf(total_price));
+        cartBuyIntent.putExtra("typeflag_commande", "cart");
 
-        cartBuyIntent.putExtra("product_image","dummydatabycart");
-        cartBuyIntent.putExtra("product_name","dummydatabycart");
-        cartBuyIntent.putExtra("product_description","dummydatabycart");
-        cartBuyIntent.putExtra("company_name","dummydatabycart");
+        cartBuyIntent.putExtra("image_produit","dummydatabycart");
+        cartBuyIntent.putExtra("nom_produit","dummydatabycart");
+        cartBuyIntent.putExtra("description_produit","dummydatabycart");
+        cartBuyIntent.putExtra("nom_entreprise","dummydatabycart");
         startActivity(cartBuyIntent);
         finish();
 

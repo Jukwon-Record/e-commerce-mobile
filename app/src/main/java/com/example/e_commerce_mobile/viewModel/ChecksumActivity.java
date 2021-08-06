@@ -93,13 +93,13 @@ public class ChecksumActivity extends AppCompatActivity {
 
             textView.setText("Récupération des détails");
 
-            mDatabase.child("utilisateurs").child(id_utilisateur).child("Adresse par défaut").addListenerForSingleValueEvent(new ValueEventListener() {
+            mDatabase.child("utilisateurs").child(id_utilisateur).child("adresse_par_defaut").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                     if (dataSnapshot.exists()){
-                        nom_recepteur=dataSnapshot.child("Nom").getValue().toString();
-                        adresse_recepteur=dataSnapshot.child("Adress").getValue().toString();
+                        nom_recepteur=dataSnapshot.child("nom").getValue().toString();
+                        adresse_recepteur=dataSnapshot.child("adresse").getValue().toString();
 
                         checksumredirect(nom_recepteur,adresse_recepteur);
                     }

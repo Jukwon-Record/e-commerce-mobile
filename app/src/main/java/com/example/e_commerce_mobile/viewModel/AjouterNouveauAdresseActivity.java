@@ -59,7 +59,7 @@ public class AjouterNouveauAdresseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ajouter_nouveau_adresse);
 
         progressdialog=new ProgressDialog(this);
-        progressdialog.setTitle("S'il vous plaît, attendez..");
+        progressdialog.setTitle("Veuillez attendre..");
         progressdialog.setMessage("Mise à jour..");
         progressdialog.setCanceledOnTouchOutside(false);
 
@@ -72,7 +72,7 @@ public class AjouterNouveauAdresseActivity extends AppCompatActivity {
 
 
         toolbar=findViewById(R.id.toolbar_ajouternouveauadresse);
-        toolbar.setTitle("Ajouter un nouveau Adresse");
+        toolbar.setTitle("Ajoutez un nouveau Adresse");
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -153,7 +153,7 @@ public class AjouterNouveauAdresseActivity extends AppCompatActivity {
 
         progressdialog.show();
 
-        String key=maDatabase.child("utilisateurs").child(user_id).child("Adresse").push().getKey();
+        String key=maDatabase.child("users").child(user_id).child("Adresse").push().getKey();
 
         String address=saddressnew3+",\n"+saddressnew4+","+saddressnew5+",\n"+saddressnew6+"-"+saddressnew7+"\n+91 "+saddressnew2;
         Map<String, Object> dataMap = new HashMap<>();
@@ -163,12 +163,12 @@ public class AjouterNouveauAdresseActivity extends AppCompatActivity {
 
 
 
-        maDatabase.child("utilisateurs").child(user_id).child("Adresse").child(key).updateChildren(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        maDatabase.child("users").child(user_id).child("Adresse").child(key).updateChildren(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     progressdialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Ajouter Adresse",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Ajoutez Adresse",Toast.LENGTH_LONG).show();
                     finish();
                 }
                 else {

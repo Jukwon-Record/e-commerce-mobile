@@ -106,9 +106,9 @@ public class ListePanierActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent buyIntent = new Intent(ListePanierActivity.this, ChecksumActivity.class);
-                    buyIntent.putExtra("total_price", String.valueOf(total_price));
-                    buyIntent.putExtra("total_product_count", String.valueOf(total_product_count));
-                    buyIntent.putExtra("from_cart", "yes");
+                    buyIntent.putExtra("prix_total", String.valueOf(total_price));
+                    buyIntent.putExtra("decompte_total_produit", String.valueOf(total_product_count));
+                    buyIntent.putExtra("from_panier", "yes");
                     startActivity(buyIntent);
                 }
             });
@@ -133,7 +133,7 @@ public class ListePanierActivity extends AppCompatActivity {
     }
 
     private void getTotalPrice() {
-        mDatabase.child("cart").child(user_id).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("panier").child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -168,7 +168,7 @@ public class ListePanierActivity extends AppCompatActivity {
 
 
     private void getCartDetails() {
-        mDatabase.child("cart").child(user_id).addChildEventListener(new ChildEventListener() {
+        mDatabase.child("panier").child(user_id).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists()) {

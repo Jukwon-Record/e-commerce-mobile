@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                                 dataMap.put("key", key);
                                 dataMap.put("device_id",device_unique_id);
                                 dataMap.put("timestamp", System.currentTimeMillis());
-                                mDatabase.child("users").child(user_id).child("login_details").child(key).updateChildren(dataMap);
+                                mDatabase.child("utilisateurs").child(user_id).child("login_details").child(key).updateChildren(dataMap);
 
                                 loader.setVisibility(View.INVISIBLE);
 
@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             } else {
                                 String errMsg = task.getException().getMessage();
-                                Toast.makeText(getApplicationContext(), "Error: " + errMsg, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Erreur: " + errMsg, Toast.LENGTH_LONG).show();
                                 loader.setVisibility(View.INVISIBLE);
                                 loginwindow.setClickable(true);
                             }
@@ -139,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), ChangerPasswordActivity.class);
-                intent.putExtra("title","Forget Password"); // Its use to set title
+                intent.putExtra("titre","Mot de passe oublié"); // Its use to set title
                 startActivity(intent);
             }
         });
@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
             finishAffinity();
         }
         else {
-            Toast.makeText(getApplicationContext(),"Please verify your Account before LoginActivity ",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Veuillez vérifier votre compte avant Login",Toast.LENGTH_LONG).show();
             mAuth.signOut();
         }
 
@@ -178,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     String errMsg = task.getException().getMessage();
-                    Toast.makeText(getApplicationContext(), "Error: " + errMsg, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Erreur: " + errMsg, Toast.LENGTH_LONG).show();
                 }
             }
         });

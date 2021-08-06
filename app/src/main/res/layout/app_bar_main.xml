@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:textAlignment="gravity"
-        android:text="No Item found!" />
+        android:text="Aucun article trouvé !" />
 
 
     <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar

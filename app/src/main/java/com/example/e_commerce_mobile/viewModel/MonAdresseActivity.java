@@ -91,7 +91,7 @@ public class MonAdresseActivity extends AppCompatActivity {
         });
 
 
-        mDatabase.child("Utilisateurs").child(user_id).child("Adresse").addChildEventListener(new ChildEventListener() {
+        mDatabase.child("users").child(user_id).child("adresse").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 if (dataSnapshot.exists()){

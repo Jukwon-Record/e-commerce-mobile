@@ -106,9 +106,9 @@ public class PanierListeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent buyIntent = new Intent(PanierListeActivity.this, ChecksumActivity.class);
-                    buyIntent.putExtra("total_price", String.valueOf(total_price));
-                    buyIntent.putExtra("total_product_count", String.valueOf(total_product_count));
-                    buyIntent.putExtra("from_cart", "yes");
+                    buyIntent.putExtra("prix_total", String.valueOf(total_price));
+                    buyIntent.putExtra("decompte_total_produit", String.valueOf(total_product_count));
+                    buyIntent.putExtra("from_panier", "oui");
                     startActivity(buyIntent);
                 }
             });
@@ -152,7 +152,7 @@ public class PanierListeActivity extends AppCompatActivity {
 
                     }
                     String csptotalprice= CommaSeparate.getFormatedNumber(""+total_price);
-                    tvPrice.setText(String.valueOf("₹" + csptotalprice));
+                    tvPrice.setText(String.valueOf("FCFA" + csptotalprice));
 
                 }
 

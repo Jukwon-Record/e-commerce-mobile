@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mContext=MainActivity.this;
 
 //        tv_noitem=findViewById(R.id.tv_main_activity_no_item);
-        loader=findViewById(R.id.loader_main_activity);
+       loader=findViewById(R.id.loader_main_activity);
         loader.setClickable(false);
 
         Toolbar toolbar = findViewById(R.id.toolbar); // toolbar initialization
@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                // cart activity Implemented on floating button
+                // panier activity Implemented on floating button
                 Intent orderIntent = new Intent(MainActivity.this, PanierListeActivity.class);
                 startActivity(orderIntent);
-                // redirect to cart
+                // redirect to panier
 
             }
         });
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        // new code implementation
+        // implémentation du nouveau code
         mContext=getApplicationContext();
         // Todo ::  home layout implementation
 
@@ -112,12 +112,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if(savedInstanceState==null){
-            product_listing("Electronics");
-            navigationView.setCheckedItem(R.id.nav_electronics);
+            product_listing("Epicerie");
+            navigationView.setCheckedItem(R.id.nav_epice);
             drawer.closeDrawer(GravityCompat.START);
         }
         else {
-            product_listing("Electronics"); // this will execute when page rotation/ refresh take place
+            product_listing("Epicerie"); // cela s'exécutera lorsque la rotation/l'actualisation de la page aura lieu
         }
 
     }
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mAuth.signOut();
                 return true;
             case R.id.action_notification:
-                Toast.makeText(getApplicationContext(),"No notification",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Aucune notification",Toast.LENGTH_LONG).show();
                 return true;
 
             case  R.id.action_my_account:
@@ -160,10 +160,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Alert!");
-            builder.setMessage("Do you want to Exit");
+            builder.setTitle("Alerte!");
+            builder.setMessage("Voulez-vous quitter");
             builder.setCancelable(false);
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which)
                 {
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
 
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which)
                 {
@@ -182,13 +182,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             });
 
             AlertDialog alertDialog = builder.create();
-            alertDialog.show();  // Show the Alert Dialog box
+            alertDialog.show();  // Montre Alert Dialog box
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate le menu; cela ajoute des éléments à la barre d'action si elle est présente.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -198,29 +198,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.nav_electronics:
-                product_listing("Electronics");
+            case R.id.nav_epice:
+                product_listing("Epicerie");
                 break;
             case R.id.nav_tv_appliances:
-                product_listing("Appliances");
+                product_listing("TV & appareils");
                 break;
             case R.id.nav_fashion :
-                product_listing("Fashion");
+                product_listing("Mode");
                 break;
             case R.id.nav_home_furniture :
-                product_listing("Furniture");
+                product_listing("Maison et Meuble");
                 break;
             case R.id.nav_grocery :
-                product_listing("Grocery");
+                product_listing("Electronique");
                 break;
             case R.id.nav_beauty_care :
-                product_listing("Beauty_Care");
+                product_listing("Beauté & Soins personnels");
                 break;
             case R.id.nav_sports:
                 product_listing("Sports");
                 break;
             case R.id.nav_books:
-                product_listing("Books");
+                product_listing("Livres");
                 break;
 
 
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         loader.setVisibility(View.VISIBLE);
         if (product_type != null) {
-            mDatabase.child("products").child(product_type).addChildEventListener(new ChildEventListener() {
+            mDatabase.child("produits").child(product_type).addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     if (dataSnapshot.exists()) {

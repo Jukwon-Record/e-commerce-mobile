@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".viewModel.VueProduitIndividuelActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_produit_unique"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/toolbar"
-        android:elevation="0dp"/>
+        android:elevation="0dp" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollview_individuel"
@@ -50,7 +51,7 @@
 
             <TextView
                 android:layout_marginTop="20dp"
-                android:id="@+id/tvNomP"
+                android:id="@+id/tvNomProduit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -65,7 +66,7 @@
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium"
                 android:layout_gravity="left"
-                android:id="@+id/tvPrixP"
+                android:id="@+id/tvPrixProduit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -76,7 +77,7 @@
             <TextView
                 android:fontFamily="sans-serif-condensed-light"
                 android:layout_gravity="left"
-                android:id="@+id/tvNomV"
+                android:id="@+id/tvNomVendeur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -125,7 +126,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_acheter_now"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity=""
